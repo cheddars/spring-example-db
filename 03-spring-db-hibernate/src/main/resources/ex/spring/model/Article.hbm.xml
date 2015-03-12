@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ex.spring.model.Article" table="board">
+		<id name="seq" column="seq" type="java.lang.Integer"/>
+		<property name="title" column="title" type="java.lang.String" not-null="false" />
+		<property name="content" column="content" type="java.lang.String" not-null="false" />
+	</class>
+</hibernate-mapping>

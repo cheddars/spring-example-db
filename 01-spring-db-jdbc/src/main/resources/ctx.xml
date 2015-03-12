@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="db.properties" ignore-resource-not-found="false" />
+	
+	<bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+		p:driverClassName="${db.postgresql.driver}"
+		p:url="${db.postgresql.url}"
+		p:username="${db.postgresql.user}"
+		p:password="${db.postgresql.pwd}" />
+	
+	<bean id="jdbcBoardDao" class="ex.spring.dao.JdbcBoardDao">
+		<property name="dataSource" ref="datasource" />
+	</bean>
+	
+	<bean id="boardService" class="ex.spring.service.BoardServiceImpl">
+		<property name="boardDao" ref="jdbcBoardDao" />
+	</bean>
+
+</beans>
