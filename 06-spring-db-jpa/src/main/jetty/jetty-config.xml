@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configure class="org.mortbay.jetty.webapp.WebAppContext">
+	<Array id="plusConfig" type="java.lang.String">
+		<Item>org.mortbay.jetty.webapp.WebInfConfiguration</Item>
+		<Item>org.mortbay.jetty.plus.webapp.EnvConfiguration</Item>
+		<Item>org.mortbay.jetty.plus.webapp.Configuration</Item>
+		<Item>org.mortbay.jetty.webapp.JettyWebXmlConfiguration</Item>
+		<Item>org.mortbay.jetty.webapp.TagLibConfiguration</Item>
+	</Array>
+	<New id="webAppContext" class="org.mortbay.jetty.webapp.WebAppContext">
+		<Set name="ConfigurationClasses">
+			<Ref id="plusConfig" />
+		</Set>
+	</New>
+	
+	<New id="mySQL" class="org.mortbay.jetty.plus.naming.Resource">
+		<Arg>jdbc/mySQL</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.mysql.jdbc.Driver</Set>
+				<Set name="url">jdbc:mysql://10.0.0.102:3306/jpa?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8</Set>
+				<Set name="username">root</Set>
+				<Set name="password">1234</Set>
+				<Set name="defaultAutoCommit">true</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>

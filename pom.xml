@@ -21,6 +21,7 @@
 
 		<!-- Spring -->
 		<spring-framework.version>3.2.3.RELEASE</spring-framework.version>
+		<spring-data.version>1.10.6.RELEASE</spring-data.version>
 
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>

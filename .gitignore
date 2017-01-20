@@ -11,3 +11,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .project
+01-spring-db-jdbc/.classpath
+05-spring-jndi-mybatis/.classpath
+06-spring-db-jpa/.classpath
+07-spring-db-jpa-mongo/.classpath
