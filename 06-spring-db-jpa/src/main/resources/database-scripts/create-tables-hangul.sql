@@ -22,3 +22,18 @@ CREATE TABLE IF NOT EXISTS article (
 	`이름` varchar(200) NULL,
 	primary key(id)
 );
+
+CREATE TABLE IF NOT EXISTS sheet (
+	id int(10) NOT NULL AUTO_INCREMENT,
+	`성명` varchar(200) NULL,
+	`평균` varchar(200) NULL,
+	`석차` int(10) NULL,
+	`home` varchar(10) NULL,
+	primary key(id)
+);
+
+CREATE TABLE IF NOT EXISTS grade (
+	sid int(10) NOT NULL AUTO_INCREMENT,
+	parentId int(10) NULL,
+	primary key(sid)
+);
