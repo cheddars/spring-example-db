@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+			http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/jdbc/spring-tx.xsd
+			http://www.springframework.org/schema/data/mongo
+          	http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+			http://www.springframework.org/schema/data/jpa
+    		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<mongo:mongo host="10.0.0.227" port="27017" />
+	
+	<mongo:db-factory id="mongo-factory" dbname="mongo" mongo-ref="mongo" username="druwa" password="1234" />
+	
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    	<constructor-arg ref="mongo-factory"/>
+  	</bean>
+  
+<!--     <jdbc:initialize-database data-source="datasource">
+        <jdbc:script location="classpath:database-scripts/create-database.sql" />
+        <jdbc:script location="classpath:database-scripts/create-tables-hangul.sql" />
+        <jdbc:script location="classpath:database-scripts/insert-data.sql" />
+    </jdbc:initialize-database>
+    
+ -->
+    
+</beans>
